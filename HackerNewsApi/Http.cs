@@ -15,8 +15,8 @@ namespace HackerNewsApi
         public Http(ILogger<Http> logger,
             IHttpClientFactory clientFactory)
         {
-            _logger = logger;
-            _clientFactory = clientFactory;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger)); ;
+            _clientFactory = clientFactory ?? throw new ArgumentNullException(nameof(clientFactory)); ;
         }
 
         public async Task<int[]> GetStories()
